@@ -27,7 +27,7 @@ public class SinglyLinkedListTest {
     }
 
     /**
-     * Test of size method, of class SinglyLinkedList.
+     * Test of size method of class SinglyLinkedList.
      */
     @Test
     public void testSize() {
@@ -55,24 +55,40 @@ public class SinglyLinkedListTest {
      */
     @Test
     public void testContains() {
-        
+
         SinglyLinkedList<Object> list = new SinglyLinkedList<Object>();
-                
+
         Object first    = new Object();
         Object second   = new Object();
         Object third    = new Object();
-        
-        list.addLast(first);                  
+
+        list.addLast(first);
         list.addLast(second);
-        
+
         boolean result = list.contains(first);
         assertEquals(true, result);
-        
+
         result = list.contains(second);
         assertEquals(true, result);
-        
+
         result = list.contains(third);
         assertEquals(false, result);
+
+    }
+
+    /**
+     * Test of contains method of class SinglyLinkedList.
+     */
+    @Test
+    public void testContainsEmpty() {
+
+        SinglyLinkedList<Object> list = new SinglyLinkedList<Object>();
+
+        Object first    = new Object();
+
+        boolean result = list.contains(first);
+        assertEquals(false, result);
+
 
     }
 
