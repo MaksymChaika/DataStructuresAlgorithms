@@ -24,4 +24,8 @@ jobs:
       run: mvn -B verify --file pom.xml sonar:sonar -Dsonar.sources=src/main/java -Dsonar.tests=src/test/java -Dsonar.java.binaries=target -Dsonar.java.file.suffixes=java -Dsonar.java.coveragePlugin=jacoco -Dsonar.dynamicAnalysis=reuseReports -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml -Dsonar.projectKey=MaksymChaika_DataStructuresAlgorithms -Dsonar.organization=maksymchaika -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}        
+    - name: Test Coverage ( public to https://codecov.io/ )
+      uses: codecov/codecov-action@v1
+      with:
+          token: ${{ secrets.CODECOV_TOKEN }}:  
